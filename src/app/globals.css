@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: var(--novel-white);
+}
+
+.tiptap p {
+  margin: 0.6em 0;
+}
