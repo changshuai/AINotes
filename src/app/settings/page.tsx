@@ -13,7 +13,10 @@ export default function Page() {
   const [saveSuccess, setSaveSuccess] = useState(false)
 
   useEffect(() => {
-    // alert("Your key is being uploaded!")
+    const apiKey = window.localStorage.getItem("API-Key")
+    if (apiKey) {
+      alert("Your key has been uploaded, If something wrong you can re-upload it with new one.")
+    }
   }, [])
 
   const handleChange = (e) => {
@@ -72,8 +75,11 @@ export default function Page() {
 
   return (
     <div>
-      <div class="md:w-2/3 w-full">
-        <div class="py-8 px-16">
+
+      <div className="text-blue-500 hover:text-blue-800 m-6"><Link href="/"> Back </Link></div>
+
+      <div className="md:w-2/3 w-full">
+        <div className="py-8 px-16">
         {apiKey && (
             <div>
               <p>API Key:</p>
@@ -81,14 +87,14 @@ export default function Page() {
             </div>
           )}
           { !apiKey && 
-          <button onClick={generateApiKey} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+          <button onClick={generateApiKey} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
             Generate API Key
           </button>
         }
         </div>
-        <div class="py-8 px-16">
-          <label for="name" class="text-sm text-gray-600">OpenAI KEY：</label>
-          <input class="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-100 focus:outline-none focus:border-indigo-500" 
+        <div className="py-8 px-16">
+          <label for="name" className="text-sm text-gray-600">OpenAI KEY：</label>
+          <input className="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-100 focus:outline-none focus:border-indigo-500" 
           type="text" name="openAIKey"
           value={inputValue}
           onChange={handleChange}
@@ -101,7 +107,7 @@ export default function Page() {
             </div>
           )}
           { !openAIKey && 
-            <button onClick={handleOpenAIKeySave} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            <button onClick={handleOpenAIKeySave} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
               Confirm
             </button>
           }
@@ -109,12 +115,12 @@ export default function Page() {
           <div>
             
           { apiKey && openAIKey && !isLoading && !saveSuccess &&
-            <button onClick={handleSave} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            <button onClick={handleSave} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
               Save
             </button>
           }
 
-          {/* <Link href="/" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Back</Link> */}
+         
           </div>
 
         </div>

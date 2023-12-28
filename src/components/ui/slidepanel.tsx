@@ -219,7 +219,7 @@ const SidePanel: FC<{ noteItems: NoteIndexItem[], onItemClicked(noteKey: string)
               </div>
           </button>
           </div> */}
-          <div className="text-blue-500 hover:text-blue-800"><Link href="/settings">OpenAPI Setting</Link></div>
+          <div className="text-blue-500 hover:text-blue-800 mt-8"><Link href="/settings">OpenAPI Setting</Link></div>
     </div>
   );
 };
